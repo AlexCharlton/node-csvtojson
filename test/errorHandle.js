@@ -63,9 +63,10 @@ describe("Converter error handling", function() {
       workerNum:1
     });
     var tested = false;
-    conv.on("error", function(err) {
+    conv.on("error", function(err, details) {
       if (tested === false) {
         assert(err.err === "column_mismatched");
+        assert(details.row.length === 3);
         tested = true;
         // done();
       }

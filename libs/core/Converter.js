@@ -362,7 +362,7 @@ Converter.prototype.processResult = function (result) {
   for (var i = 0, len = result.length; i < len; i++) {
     var r = result[i];
     if (r.err) {
-      this.emit("error", r.err);
+      this.emit("error", r.err, r.details);
     } else {
       this.emitResult(r);
     }
