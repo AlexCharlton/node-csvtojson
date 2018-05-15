@@ -69,6 +69,10 @@ module.exports = function rowSplit(rowStr, param) {
     row = filterRow(row, param);
   }
 
+  if (inquote && param.alwaysSplitAtEOL) {
+    return { cols: [rowStr], closed: true };
+  }
+
   return { cols: row, closed: !inquote };
   // if (param.workerNum<=1){
   // }else{
