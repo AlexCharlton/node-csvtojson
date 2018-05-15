@@ -63,7 +63,7 @@ describe("Converter error handling", function() {
       workerNum:1
     });
     var tested = false;
-    conv.on("error", function(err, details) {
+    conv.on("recoverable_error", function(err, details) {
       if (tested === false) {
         assert(err.err === "column_mismatched");
         assert(details.row.length === 3);
@@ -86,7 +86,7 @@ describe("Converter error handling", function() {
       alwaysSplitAtEOL:true,
     });
     var tested = false;
-    conv.on("error", function(err) {
+    conv.on("recoverable_error", function(err) {
       if (tested === false) {
         assert(err.err === "column_mismatched");
         tested = true;
