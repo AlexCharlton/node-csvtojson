@@ -54,7 +54,8 @@ function processRow(row, param, index) {
     return {
       err: CSVError.column_mismatched(index),
       details: {
-        row: row
+        row: row,
+        headers: param._headers
       }
     };
   }
