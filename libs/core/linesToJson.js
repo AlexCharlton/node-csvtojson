@@ -49,8 +49,8 @@ function processRows(csvRows, params, startIndex) {
 
 function processRow(row, param, index) {
   var parseRules = param.parseRules;
-  if (param.checkColumn && row.length !== parseRules.length &&
-      (row.length > 1 && param.ignoreEmpty)) {
+    if (param.checkColumn && row.length !== parseRules.length &&
+        (row.length > 0 && param.ignoreEmpty)) {
     return {
       err: CSVError.column_mismatched(index),
       details: {
